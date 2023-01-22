@@ -4,18 +4,24 @@ const fecharModal = document.querySelector(".fechar-modal");
 const video = document.getElementById("video");
 const linkTrailer = video.src;
 
-console.log(linkTrailer);
-
-btnTrailer.addEventListener("click", ()=>{
+btnTrailer.addEventListener("click", () => {
     modalAbertoFechado()
     video.setAttribute("src", linkTrailer)
 });
 
-fecharModal.addEventListener("click", ()=>{
+fecharModal.addEventListener("click", () => {
     modalAbertoFechado()
     video.setAttribute("src", "")
 });
 
-function modalAbertoFechado(){
+function modalAbertoFechado() {
     modal.classList.toggle("aberto")
-}
+};
+
+const observer = new IntersectionObserver(entries => {
+    entries[0].target.classList.add('init-hidden-off')
+})
+
+Array.from(document.querySelectorAll('.init-hidden')).forEach(element => {
+    observer.observe(element)
+})
