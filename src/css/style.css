@@ -133,10 +133,18 @@ html {
 
 .modal iframe{
     border: 0;
-    width: 640px;
-    height: 360px;
+    width: 700px;
+    height: 400px;
 }
 
 .modal.aberto{
     visibility: visible;
+}
+.mario{
+    width: 100%;
+    transition: 0.5s all ease-in-out;
+}
+
+.mario:hover{
+    transform: scale(1.05);
 }

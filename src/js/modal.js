@@ -1,19 +1,21 @@
-const btnClick = document.querySelector('.btn-trailer');
-const fecharModal = document.querySelector('.fechar-modal');
-const modal = document.querySelector('.modal');
+const btnTrailer = document.querySelector(".btn-trailer");
+const modal = document.querySelector(".modal");
+const fecharModal = document.querySelector(".fechar-modal");
+const video = document.getElementById("video");
+const linkTrailer = video.src;
 
-[btnClick].forEach(e => {
-    e.addEventListener('click', () => {
-        if (modal) {
-            modal.classList.add('aberto') 
-        }
-    })
+console.log(linkTrailer);
+
+btnTrailer.addEventListener("click", ()=>{
+    modalAbertoFechado()
+    video.setAttribute("src", linkTrailer)
 });
 
-[fecharModal].forEach(e => {
-    e.addEventListener('click', () => {
-        if (modal) {
-            modal.classList.remove('aberto') 
-        }
-    })
+fecharModal.addEventListener("click", ()=>{
+    modalAbertoFechado()
+    video.setAttribute("src", "")
 });
+
+function modalAbertoFechado(){
+    modal.classList.toggle("aberto")
+}
